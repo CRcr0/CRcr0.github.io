@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Richard Rui Chu</title>
+<meta name="description" content="Richard Rui Chu: Ph.D. researcher working on trustworthy and efficient foundation models, including LLM security, copyright-aware generation, multimodal video understanding, and autonomous-driving evaluation.">
+<meta property="og:title" content="Richard Rui Chu">
+<meta property="og:description" content="Trustworthy and efficient foundation models. Publications at NeurIPS, CVPR, ECCV, and EMNLP.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://crcr0.github.io/">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23233a5e'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' font-weight='700' text-anchor='middle' fill='%23ffffff'%3ERC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf9f6;
+  --surface: #ffffff;
+  --text: #1b1d21;
+  --muted: #555b65;
+  --faint: #868c96;
+  --rule: #e5e1d8;
+  --accent: #233a5e;
+  --accent-text: #2a4f86;
+  --accent-soft: #e9eef6;
+  --highlight: #8a4b08;
+  --highlight-soft: #fbefdc;
+  --shadow: 0 1px 2px rgba(20, 24, 31, .04), 0 4px 16px rgba(20, 24, 31, .04);
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111317;
+    --surface: #181b20;
+    --text: #e7e5e1;
+    --muted: #a7acb4;
+    --faint: #7c828c;
+    --rule: #2a2e35;
+    --accent: #9db8e3;
+    --accent-text: #a9c3ee;
+    --accent-soft: #1f2838;
+    --highlight: #f0b86a;
+    --highlight-soft: #33270f;
+    --shadow: none;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 16px/1.62 var(--sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: var(--accent-text); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; border-radius: 4px; }
+.wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+/* ---------- nav ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: saturate(1.4) blur(10px);
+  -webkit-backdrop-filter: saturate(1.4) blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 56px; }
+.nav .brand { font: 600 17px/1 var(--serif); color: var(--text); white-space: nowrap; }
+.nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; overflow-x: auto; scrollbar-width: none; }
+.nav ul::-webkit-scrollbar { display: none; }
+.nav li a { color: var(--muted); font-size: 14px; font-weight: 500; white-space: nowrap; }
+.nav li a:hover { color: var(--text); text-decoration: none; }
+
+/* ---------- hero ---------- */
+.hero { padding: 64px 0 40px; }
+.hero h1 { font: 700 44px/1.1 var(--serif); letter-spacing: -.01em; margin: 0 0 14px; }
+.hero .role { font-size: 18px; color: var(--muted); margin: 0 0 4px; }
+.hero .role strong { color: var(--text); font-weight: 600; }
+.hero .tagline { font: 500 21px/1.45 var(--serif); margin: 22px 0 26px; max-width: 46ch; }
+.links { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 14px; border-radius: 999px;
+  border: 1px solid var(--rule); background: var(--surface);
+  color: var(--text); font-size: 14px; font-weight: 500;
+  box-shadow: var(--shadow);
+}
+.btn:hover { border-color: var(--accent-text); text-decoration: none; }
+.btn svg { width: 16px; height: 16px; flex: none; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+
+/* ---------- sections ---------- */
+section { padding: 36px 0 8px; }
+h2 {
+  font: 600 26px/1.2 var(--serif); margin: 0 0 18px;
+  padding-bottom: 10px; border-bottom: 1px solid var(--rule);
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+}
+h3 { font: 600 15px/1.4 var(--sans); margin: 26px 0 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+p { margin: 0 0 14px; }
+.lead { font-size: 17px; }
+
+/* research themes */
+.themes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 20px; }
+.theme { background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; padding: 18px; box-shadow: var(--shadow); }
+.theme .num { font: 600 13px/1 var(--sans); color: var(--accent-text); letter-spacing: .06em; }
+.theme h4 { font: 600 18px/1.3 var(--serif); margin: 8px 0 8px; }
+.theme p { font-size: 14px; color: var(--muted); margin: 0 0 12px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: var(--accent-soft); color: var(--accent-text); }
+a.chip:hover { text-decoration: none; filter: brightness(.97); }
+
+/* news */
+.news { list-style: none; padding: 0; margin: 0; }
+.news li { display: grid; grid-template-columns: 64px 1fr; gap: 14px; padding: 7px 0; }
+.news .yr { font: 600 14px/1.62 var(--sans); color: var(--faint); font-variant-numeric: tabular-nums; }
+
+/* publications */
+.filter { display: inline-flex; border: 1px solid var(--rule); border-radius: 999px; padding: 3px; background: var(--surface); }
+.filter button {
+  font: 500 13px/1 var(--sans); color: var(--muted); background: none; border: 0;
+  padding: 7px 12px; border-radius: 999px; cursor: pointer;
+}
+.filter button[aria-pressed="true"] { background: var(--accent); color: var(--bg); }
+.note { font-size: 14px; color: var(--muted); margin-bottom: 8px; }
+.pubs { list-style: none; margin: 0; padding: 0; }
+.pub { display: grid; grid-template-columns: 112px 1fr; gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
+.pub:last-child { border-bottom: 0; }
+.pub[hidden] { display: none; }
+.venue {
+  align-self: start; text-align: center;
+  font: 600 12.5px/1.25 var(--sans); letter-spacing: .02em;
+  padding: 7px 8px; border-radius: 8px;
+  background: var(--accent-soft); color: var(--accent-text);
+}
+.venue.review { background: transparent; border: 1px dashed var(--rule); color: var(--muted); }
+.pub .title { font: 600 17px/1.4 var(--serif); margin: 0 0 4px; color: var(--text); }
+.pub .authors { font-size: 14.5px; color: var(--muted); margin: 0 0 2px; }
+.pub .authors b { color: var(--text); font-weight: 600; }
+.pub .where { font-size: 14.5px; color: var(--muted); font-style: italic; margin: 0; }
+.pub .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin-top: 8px; font-size: 13.5px; }
+.tag { font: 600 11.5px/1 var(--sans); letter-spacing: .04em; text-transform: uppercase; padding: 4px 7px; border-radius: 5px; }
+.tag.hl { background: var(--highlight-soft); color: var(--highlight); }
+.tag.fa { background: var(--accent-soft); color: var(--accent-text); }
+.rate { color: var(--faint); font-size: 13px; }
+.pub details { margin-top: 8px; }
+.pub summary { cursor: pointer; font-size: 13.5px; font-weight: 500; color: var(--accent-text); list-style: none; display: inline-flex; align-items: center; gap: 6px; }
+.pub summary::-webkit-details-marker { display: none; }
+.pub summary::before { content: ""; width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(-45deg); transition: transform .15s; }
+.pub details[open] summary::before { transform: rotate(45deg); }
+.pub details p { font-size: 14.5px; color: var(--muted); margin: 8px 0 0; }
+
+/* experience */
+.xp { list-style: none; margin: 0; padding: 0; }
+.xp > li { padding: 14px 0; border-bottom: 1px solid var(--rule); }
+.xp > li:last-child { border-bottom: 0; }
+.xp .row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.xp .org { font: 600 17px/1.4 var(--serif); }
+.when { font-size: 14px; color: var(--faint); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.xp .pos { font-size: 14.5px; color: var(--muted); margin: 1px 0 6px; }
+.xp p { font-size: 14.5px; margin: 0; }
+
+/* compact cards */
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.card { background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; padding: 18px; box-shadow: var(--shadow); }
+.card h4 { font: 600 17px/1.3 var(--serif); margin: 0 0 10px; }
+.card ul { margin: 0; padding-left: 18px; font-size: 14.5px; }
+.card li { margin: 4px 0; }
+.card .sub { display: block; color: var(--faint); font-size: 13px; }
+
+.edu { list-style: none; margin: 0; padding: 0; }
+.edu li { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--rule); }
+.edu li:last-child { border-bottom: 0; }
+.edu .school { font: 600 17px/1.4 var(--serif); }
+.edu .deg { font-size: 14.5px; color: var(--muted); }
+
+footer { margin-top: 48px; padding: 28px 0 40px; border-top: 1px solid var(--rule); font-size: 13.5px; color: var(--faint); }
+footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+@media (max-width: 760px) {
+  .wrap { padding: 0 16px; }
+  .nav .brand { display: none; }
+  .nav .wrap { justify-content: flex-start; }
+  .hero { padding: 40px 0 24px; }
+  .hero h1 { font-size: 34px; }
+  .hero .tagline { font-size: 18px; }
+  .themes, .grid3 { grid-template-columns: 1fr; }
+  .pub { grid-template-columns: 1fr; gap: 8px; }
+  .venue { justify-self: start; }
+  .news li { grid-template-columns: 52px 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Sections">
+  <div class="wrap">
+    <a class="brand" href="#top">Richard Rui Chu</a>
+    <ul>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#service">Service</a></li>
+      <li><a href="cv/Richard_Rui_Chu_CV.pdf">CV</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+<div class="wrap">
+
+  <header class="hero">
+    <h1>Richard Rui Chu</h1>
+    <p class="role"><strong>Ph.D. Researcher</strong>, Cornell University – Tufts University</p>
+    <p class="role">Advisor: Prof. Yingjie Lao</p>
+    <p class="tagline">I build trustworthy and efficient foundation models: LLMs and multimodal models that stay secure, accountable, and deployable outside the lab.</p>
+    <div class="links">
+      <a class="btn primary" href="cv/Richard_Rui_Chu_CV.pdf">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg>
+        CV (PDF)
+      </a>
+      <a class="btn" href="mailto:ruichu.richard@outlook.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        Email
+      </a>
+      <a class="btn" href="https://scholar.google.com/citations?user=Jd2YfKQAAAAJ">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9.5 12 4l10 5.5-10 5.5z"/><path d="M6 11.7V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.3"/></svg>
+        Google Scholar
+      </a>
+      <a class="btn" href="https://github.com/CRcr0">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </header>
+
+  <!-- ===================== Research ===================== -->
+  <section id="research" aria-labelledby="h-research">
+    <h2 id="h-research">Research</h2>
+    <p class="lead">My research focuses on <strong>trustworthy and efficient foundation models</strong>. I work across three layers of the deployment lifecycle, with applications in AI security, intellectual-property protection, fair and accountable AI, autonomous driving, and efficient AI infrastructure. My research has been supported by the U.S. National Science Foundation (NSF).</p>
+    <div class="themes">
+      <article class="theme">
+        <div class="num">01</div>
+        <h4>Exposing vulnerabilities</h4>
+        <p>Adversarial hijacking of in-context learning and imperceptible backdoors in diffusion models.</p>
+        <div class="chips"><a class="chip" href="#pub-bamicl">BAM-ICL</a><a class="chip" href="#pub-uib">UIBDiffusion</a></div>
+      </article>
+      <article class="theme">
+        <div class="num">02</div>
+        <h4>Inference-time safeguards</h4>
+        <p>Copyright-aware code generation, sparse watermarking, retrieval-augmented debiasing, and contextual unlearning, without retraining.</p>
+        <div class="chips"><a class="chip" href="#pub-acg">AegisCodeGen</a><a class="chip" href="#pub-spark">SpARK</a><a class="chip" href="#pub-debiasrag">DebiasRAG</a><a class="chip" href="#pub-d0cur">D0CUR</a></div>
+      </article>
+      <article class="theme">
+        <div class="num">03</div>
+        <h4>Reliable, efficient deployment</h4>
+        <p>Attention steering for video understanding, neural evaluation of driving planners, and FPGA co-design for multi-agent LLMs.</p>
+        <div class="chips"><a class="chip" href="#pub-has">HAS</a><a class="chip" href="#xp-motional">MotionScorer</a><a class="chip" href="#pub-fasd">FASD</a></div>
+      </article>
+    </div>
+
+    <h3>Highlights</h3>
+    <ul class="news">
+      <li><span class="yr">2026</span><span><strong>FASD</strong> accepted to NeurIPS 2026 and <strong>AegisCodeGen</strong> accepted to EMNLP 2026.</span></li>
+      <li><span class="yr">2026</span><span><strong>HAS</strong> published at ECCV 2026 (Malmö, Sweden).</span></li>
+      <li><span class="yr">2026</span><span>Research Scientist in AI and Autonomous Driving at <strong>Motional</strong>, Boston (May – Aug).</span></li>
+      <li><span class="yr">2026</span><span><strong>SpARK</strong> published in Findings of EACL 2026.</span></li>
+      <li><span class="yr">2025</span><span><strong>BAM-ICL</strong> published at NeurIPS 2025.</span></li>
+      <li><span class="yr">2025</span><span><strong>UIBDiffusion</strong> selected as a CVPR 2025 Highlight (388 of 13,008 submissions).</span></li>
+    </ul>
+  </section>
+
+  <!-- ===================== Publications ===================== -->
+  <section id="publications" aria-labelledby="h-pubs">
+    <h2 id="h-pubs">Publications
+      <span class="filter" role="group" aria-label="Filter publications">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="first" aria-pressed="false">First author</button>
+      </span>
+    </h2>
+    <p class="note">In AI and machine learning, peer-reviewed top-tier conferences are the premier venues; NeurIPS, CVPR, ECCV, and EMNLP are flagship conferences listed at CSRankings.</p>
+
+    <h3>Conference Papers</h3>
+    <ol class="pubs" reversed>
+      <li class="pub" id="pub-fasd" data-first>
+        <div class="venue">NeurIPS<br>2026</div>
+        <div>
+          <p class="title">FASD: Hardware Acceleration for Multi-AI-Agent Discussion</p>
+          <p class="authors"><b>Rui Chu</b>, et al.</p>
+          <p class="where">Advances in Neural Information Processing Systems 39 (NeurIPS 2026). To appear.</p>
+          <div class="meta"><span class="tag fa">First author</span></div>
+          <details><summary>Summary</summary>
+            <p>An FPGA–algorithm co-design framework that cuts the latency of discussion in LLM-powered multi-agent systems. It models multi-agent discussion as a graph-coupled dynamical system so agent-activation pruning can be optimized through phase-coupled dynamics, then maps the pruning operator onto an FPGA-friendly datapath. Efficiency improves while task performance is preserved, with larger gains as the agent graph grows.</p>
+          </details>
+        </div>
+      </li>
+
+      <li class="pub" id="pub-acg" data-first>
+        <div class="venue">EMNLP<br>2026</div>
+        <div>
+          <p class="title">AegisCodeGen: Toward Copyright-Aware Code Generation with Runnability-Guided Fusion</p>
+          <p class="authors"><b>Rui Chu</b>, Nicole Meng, Tanusree Das Tithy, Thomas Cao, Faysal Hossain Shezan, Yingjie Lao</p>
+          <p class="where">Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing (EMNLP 2026). To appear.</p>
+          <div class="meta"><span class="tag fa">First author</span></div>
+          <details><summary>Summary</summary>
+            <p>Treats copyright protection for code LLMs as region-aware generation control. Multiple sampled generations build an agreement profile over the target program, which then gates copyright-aware logit fusion: stronger protection in low-agreement regions, weaker shifts near executable anchors. Protected-code reproduction drops while runnability and utility are preserved, with no retraining and no access to training data.</p>
+          </details>
+        </div>
+      </li>
+
+      <li class="pub" id="pub-has" data-first>
+        <div class="venue">ECCV<br>2026</div>
+        <div>
+          <p class="title">HAS: Highlight-Guided Attention Steering for Multimodal LLM Video Summarization</p>
+          <p class="authors"><b>Rui Chu</b>, Yingjie Lao</p>
+          <p class="where">Computer Vision – ECCV 2026, Lecture Notes in Computer Science, pp. 138–157. Springer.</p>
+          <div class="meta">
+            <span class="tag fa">First author</span>
+            <a href="https://doi.org/10.1007/978-3-032-37041-9_8">Paper</a>
+            <a href="https://arxiv.org/abs/2607.17994">arXiv</a>
+            <a href="https://crcr0.github.io/LatentGauge/has/v2/">Interactive demo</a>
+            <span class="rate">Acceptance rate 27.5%</span>
+          </div>
+          <details><summary>Summary</summary>
+            <p>Replaces discrete key-frame selection with a continuous, frame-level highlight distribution computed over the whole video, and injects it at inference time as an attention steering vector. The multimodal LLM attends more to highlighted frames while still retaining information from the rest of the video.</p>
+          </details>
+        </div>
+      </li>
+
+      <li class="pub" id="pub-bamicl" data-first>
+        <div class="venue">NeurIPS<br>2025</div>
+        <div>
+          <p class="title">BAM-ICL: Causal Hijacking In-Context Learning with Budgeted Adversarial Manipulation</p>
+          <p class="authors"><b>Rui Chu</b>, Bingyin Zhao, Hanling Jiang, Shuchin Aeron, Yingjie Lao</p>
+          <p class="where">Advances in Neural Information Processing Systems 38 (NeurIPS 2025), pp. 15819–15850.</p>
+          <div class="meta">
+            <span class="tag fa">First author</span>
+            <a href="https://doi.org/10.52202/085713-0476">Paper</a>
+            <a href="https://openreview.net/forum?id=hCc6obJhlj">OpenReview</a>
+            <span class="rate">Acceptance rate 24.5%</span>
+          </div>
+          <details><summary>Summary</summary>
+            <p>A two-stage budgeted attack on in-context learning: an offline, gradient-based stage learns how to distribute the perturbation budget across in-context examples, and an online stage perturbs examples one by one as they arrive, a stricter threat model where only the current example can be modified. It achieves higher attack success and stealthiness while keeping text quality, and the adversarial examples transfer to other models.</p>
+          </details>
+        </div>
+      </li>
+
+      <li class="pub" id="pub-uib">
+        <div class="venue">CVPR<br>2025</div>
+        <div>
+          <p class="title">UIBDiffusion: Universal Imperceptible Backdoor Attack for Diffusion Models</p>
+          <p class="authors">Yuning Han, Bingyin Zhao, <b>Rui Chu</b>, Feng Luo, Biplab Sikdar, Yingjie Lao</p>
+          <p class="where">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR 2025), pp. 19186–19196.</p>
+          <div class="meta">
+            <span class="tag hl">Highlight</span>
+            <a href="https://doi.org/10.1109/CVPR52734.2025.01787">Paper</a>
+            <a href="https://arxiv.org/abs/2412.11441">arXiv</a>
+            <span class="rate">Acceptance rate 22.1% · Highlight 3.0%</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub" id="pub-spark">
+        <div class="venue">EACL<br>2026</div>
+        <div>
+          <p class="title">SpARK: An Embarrassingly Simple Sparse Watermarking in LLMs with Enhanced Text Quality</p>
+          <p class="authors">Duy Cao Hoang, Thanh Quoc Hung Le, <b>Rui Chu</b>, Ping Li, Weijie Zhao, Yingjie Lao, Khoa D. Doan</p>
+          <p class="where">Findings of the Association for Computational Linguistics: EACL 2026, pp. 4603–4626.</p>
+          <div class="meta">
+            <a href="https://doi.org/10.18653/v1/2026.findings-eacl.240">Paper</a>
+            <a href="https://arxiv.org/abs/2407.13803">arXiv</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub">
+        <div class="venue">ICSC<br>2026</div>
+        <div>
+          <p class="title">Explainability in Speech AI: Challenges and Future Directions</p>
+          <p class="authors">Xiaoliang Wu, Sarah Kiden, <b>Rui Chu</b>, Jennifer Williams, Shuo Zhang, Alice Mello Da Fonseca</p>
+          <p class="where">2026 IEEE International Conference on Semantic Computing (ICSC 2026), pp. 320–327.</p>
+          <div class="meta"><a href="https://doi.org/10.1109/ICSC67292.2026.00053">Paper</a></div>
+        </div>
+      </li>
+
+      <li class="pub">
+        <div class="venue">ICWS<br>2024</div>
+        <div>
+          <p class="title">FlowRCA: Enhancing Microservice Reliability with Non-invasive Root Cause Analysis</p>
+          <p class="authors">Zhikang Wu, Jingyu Wang, Qi Qi, Min-Gen Shu, <b>Rui Chu</b>, Ju-Biao Li, Jing Jin, Danyang Chen</p>
+          <p class="where">2024 IEEE International Conference on Web Services (ICWS 2024), pp. 1251–1258.</p>
+          <div class="meta"><a href="https://doi.org/10.1109/ICWS62655.2024.00149">Paper</a></div>
+        </div>
+      </li>
+
+      <li class="pub">
+        <div class="venue">ICASSP<br>2024</div>
+        <div>
+          <p class="title">SO-Net: Model-Agnostic Sequential Hand Pose Optimization Framework</p>
+          <p class="authors">Yuanyuan Gao, Pengfei Ren, Mingen Shu, <b>Rui Chu</b>, Jubiao Li, Jing Jin, Wei Li</p>
+          <p class="where">2024 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP 2024), pp. 3755–3759.</p>
+          <div class="meta"><a href="https://doi.org/10.1109/ICASSP48485.2024.10445741">Paper</a></div>
+        </div>
+      </li>
+
+      <li class="pub">
+        <div class="venue">ICSME<br>2019</div>
+        <div>
+          <p class="title">Know-How in Programming Tasks: From Textual Tutorials to Task-Oriented Knowledge Graph</p>
+          <p class="authors">Jiamou Sun, Zhenchang Xing, <b>Rui Chu</b>, Heilai Bai, Jinshui Wang, Xin Peng</p>
+          <p class="where">2019 IEEE International Conference on Software Maintenance and Evolution (ICSME 2019), pp. 257–268.</p>
+          <div class="meta">
+            <a href="https://doi.org/10.1109/ICSME.2019.00039">Paper</a>
+            <span class="rate">Acceptance rate 23%</span>
+          </div>
+        </div>
+      </li>
+    </ol>
+
+    <h3>Under Review</h3>
+    <ul class="pubs">
+      <li class="pub" id="pub-debiasrag" data-first>
+        <div class="venue review">Preprint</div>
+        <div>
+          <p class="title">DebiasRAG: A Tuning-Free Path to Fair Generation in Large Language Models through Retrieval-Augmented Generation</p>
+          <p class="authors"><b>Rui Chu</b>, Bingyin Zhao, Thanh Quoc Hung Le, Duy Cao Hoang, Huawei Lin, Ping Li, Weijie Zhao, Khoa D. Doan, Yingjie Lao</p>
+          <div class="meta">
+            <span class="tag fa">First author</span>
+            <a href="https://arxiv.org/abs/2605.16113">arXiv</a>
+            <a href="https://github.com/CRcr0/DebiasRAG">Code</a>
+          </div>
+          <details><summary>Summary</summary>
+            <p>A tuning-free, query-specific debiasing framework built on retrieval-augmented generation. It derives debiasing contexts from self-diagnosed bias contexts and reranks retrieved context with gradient-updated debiasing guidance, reducing social bias (race, gender, age) while preserving the model's representation ability.</p>
+          </details>
+        </div>
+      </li>
+      <li class="pub" id="pub-d0cur" data-first>
+        <div class="venue review">Under<br>review</div>
+        <div>
+          <p class="title">D0CUR: Zero-Shot LLM Unlearning via Dynamic Contextual Retrieval</p>
+          <p class="authors"><b>Rui Chu</b>, et al.</p>
+          <div class="meta"><span class="tag fa">First author</span></div>
+        </div>
+      </li>
+      <li class="pub" data-first>
+        <div class="venue review">Under<br>review</div>
+        <div>
+          <p class="title">Multi-Agent System is a Few-Shot Dimensional Learner</p>
+          <p class="authors"><b>Rui Chu</b>, et al.</p>
+          <div class="meta"><span class="tag fa">First author</span></div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ===================== Experience ===================== -->
+  <section id="experience" aria-labelledby="h-xp">
+    <h2 id="h-xp">Experience</h2>
+    <h3>Industry</h3>
+    <ul class="xp">
+      <li id="xp-motional">
+        <div class="row"><span class="org">Motional</span><span class="when">May 2026 – Aug 2026</span></div>
+        <div class="pos">Research Scientist in AI and Autonomous Driving · Boston, MA</div>
+        <p>Designed an end-to-end neural-network evaluation system (MotionScorer) as a component of Motional's driving world model, integrated it into a vision-language-model semantic workflow, and distilled it into a scorer for the autonomous-vehicle planner. Evaluated human-aligned trajectory scoring on public benchmarks, including Waymo Open Dataset end-to-end driving data. Manuscript in submission.</p>
+      </li>
+      <li>
+        <div class="row"><span class="org">Tesla</span><span class="when">Summer 2023</span></div>
+        <div class="pos">Data Streaming Engineer: DevOps and Model Deployment (University Collaboration Position) · Austin, TX</div>
+        <p>Established cloud-computing data pipelines for manufacturing software, and built model-deployment and data-streaming pipelines that connect trained models to production systems.</p>
+      </li>
+      <li>
+        <div class="row"><span class="org">Virufy AI-Health @ Stanford University</span><span class="when">Summer 2022</span></div>
+        <div class="pos">Model Deployment Engineer · Silicon Valley, CA</div>
+        <p>Trained a cough-audio diagnostic model in TensorFlow, deployed it on edge devices, and built the supporting AWS web services; collected and labeled more than 5,000 COVID-19 cough recordings.</p>
+      </li>
+      <li>
+        <div class="row"><span class="org">Bosch</span><span class="when">May 2021 – Sep 2021</span></div>
+        <div class="pos">Embedded Engineer</div>
+        <p>Improved the performance of Bosch power-tool systems by 5% using data collected from hardware, and tested hardware functions.</p>
+      </li>
+    </ul>
+
+    <h3>Research</h3>
+    <ul class="xp">
+      <li>
+        <div class="row"><span class="org">Tufts University, Department of Electrical and Computer Engineering</span><span class="when">2023 – Present</span></div>
+        <div class="pos">Ph.D. Researcher, advised by Prof. Yingjie Lao · Medford, MA</div>
+        <p>LLM security and robustness, copyright-aware and fair generation, multimodal video understanding, and hardware-efficient multi-agent systems. See <a href="#publications">publications</a>.</p>
+      </li>
+      <li>
+        <div class="row"><span class="org">Claudius Legal Intelligence AI, NLP Lab @ Princeton University</span></div>
+        <div class="pos">Research Assistant, with Prof. Melanie Weber (Harvard University)</div>
+        <p>Retrained legal-domain language models in the cloud on legal papers and materials, building on prior models.</p>
+      </li>
+      <li>
+        <div class="row"><span class="org">Creative Machines Laboratory, Columbia University</span></div>
+        <div class="pos">Researcher, with Prof. Hod Lipson</div>
+        <p>Parallelized robot simulation environments in Isaac Gym, using CUDA and OpenGL, to accelerate reinforcement-learning training of robots.</p>
+      </li>
+      <li>
+        <div class="row"><span class="org">Columbia University</span></div>
+        <div class="pos">Research Assistant, with Prof. Sharon Di</div>
+        <p>Reinforcement learning for autonomous-driving routing: built a Unity simulation environment for obstacle avoidance, applied a Transformer model, and implemented DQN and DDPG in PyTorch with CUDA.</p>
+      </li>
+      <li>
+        <div class="row"><span class="org">Columbia University &amp; Northwestern University</span></div>
+        <div class="pos">Research Assistant, with Prof. Gil Zussman and Prof. Igor Kadota</div>
+        <p>Trained ImageNet-based vision models to classify and predict wind maps from mmWave network measurements, and applied reinforcement learning to MIMO beamforming.</p>
+      </li>
+      <li>
+        <div class="row"><span class="org">University College London</span></div>
+        <div class="pos">Project Leader, with Google and Prof. Josep Grau-Bove</div>
+        <p>Designed an improved 3D virtual-reality tour of the British Museum using Unity and 3D sensor fusion.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ===================== Education ===================== -->
+  <section id="education" aria-labelledby="h-edu">
+    <h2 id="h-edu">Education</h2>
+    <ul class="edu">
+      <li>
+        <div><div class="school">Cornell University – Tufts University</div>
+          <div class="deg">Ph.D. in Computer Engineering (Advisor: Prof. Yingjie Lao) &amp; Ph.D. in Systems Engineering · Dean's Fellowship</div></div>
+        <span class="when">2023 – 2026</span>
+      </li>
+      <li>
+        <div><div class="school">Columbia University</div>
+          <div class="deg">M.S. in Computer Engineering</div></div>
+        <span class="when">2021 – 2023</span>
+      </li>
+      <li>
+        <div><div class="school">University College London – Fudan University – University of Shanghai for Science and Technology</div>
+          <div class="deg">B.S. in Information Science; Dual Degree in Finance</div></div>
+        <span class="when">2016 – 2021</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ===================== Service / Teaching / Honors ===================== -->
+  <section id="service" aria-labelledby="h-svc">
+    <h2 id="h-svc">Service, Teaching &amp; Honors</h2>
+    <div class="grid3">
+      <div class="card">
+        <h4>Professional Service</h4>
+        <ul>
+          <li>Co-Host, DCASE Conference<span class="sub">Detection and Classification of Acoustic Scenes and Events</span></li>
+          <li>PC Member, ECIR</li>
+          <li>Reviewer: NeurIPS, ICML, ICLR, EMNLP, SIGIR</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Teaching Assistant</h4>
+        <ul>
+          <li>EE 141: Trusted and Responsible AI<span class="sub">Tufts · Spring 2026</span></li>
+          <li>EE 193: AI Security and Privacy<span class="sub">Tufts · Spring 2025</span></li>
+          <li>COMS 4735: Visual Interfaces to Computers<span class="sub">Columbia · Spring 2023</span></li>
+          <li>EE 6889: Stream Processing<span class="sub">Columbia · Spring 2023</span></li>
+          <li>EECS 6893: Big Data Analytics and Advanced AI<span class="sub">Columbia · Fall 2022</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Honors</h4>
+        <ul>
+          <li>Highlight Paper, CVPR 2025<span class="sub">388 of 13,008 submissions (about 3%)</span></li>
+          <li>Dean's Fellowship, Tufts University, 2023</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Richard Rui Chu</span>
+    <span>Last updated October 2026</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var buttons = document.querySelectorAll('.filter button');
+  var pubs = document.querySelectorAll('.pub');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var mode = btn.getAttribute('data-filter');
+      buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
+      pubs.forEach(function (p) {
+        p.hidden = mode === 'first' && !p.hasAttribute('data-first');
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
