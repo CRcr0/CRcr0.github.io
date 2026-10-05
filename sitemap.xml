@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://crcr0.github.io/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-05</lastmod>
   </url>
   <url>
     <loc>https://crcr0.github.io/AttendingScorer/</loc>
@@ -22,6 +22,50 @@
   </url>
   <url>
     <loc>https://crcr0.github.io/AttendingScorer/AttendingScorer_Poster.pdf</loc>
+    <lastmod>2026-10-04</lastmod>
+  </url>
+  <url>
+    <loc>https://crcr0.github.io/LatentGauge-Homepage/</loc>
+    <lastmod>2026-10-04</lastmod>
+  </url>
+  <url>
+    <loc>https://crcr0.github.io/LatentGauge-Homepage/LatentGauge_Poster.pdf</loc>
+    <lastmod>2026-10-04</lastmod>
+  </url>
+  <url>
+    <loc>https://crcr0.github.io/LatentGauge-Homepage/LatentGauge_Extended_Abstract.pdf</loc>
+    <lastmod>2026-10-04</lastmod>
+  </url>
+  <url>
+    <loc>https://crcr0.github.io/LatentGauge/</loc>
+    <lastmod>2026-10-04</lastmod>
+  </url>
+  <url>
+    <loc>https://crcr0.github.io/RouterMAS/</loc>
+    <lastmod>2026-10-04</lastmod>
+  </url>
+  <url>
+    <loc>https://crcr0.github.io/RouterMAS/RouterMAS_Story.html</loc>
+    <lastmod>2026-10-04</lastmod>
+  </url>
+  <url>
+    <loc>https://crcr0.github.io/RouterMAS/showcase.html</loc>
+    <lastmod>2026-10-04</lastmod>
+  </url>
+  <url>
+    <loc>https://crcr0.github.io/RouterMAS/RouterMAS_Extended_Abstract.pdf</loc>
+    <lastmod>2026-10-04</lastmod>
+  </url>
+  <url>
+    <loc>https://crcr0.github.io/RouterMAS/RouterMAS_Poster.pdf</loc>
+    <lastmod>2026-10-04</lastmod>
+  </url>
+  <url>
+    <loc>https://crcr0.github.io/HAS/</loc>
+    <lastmod>2026-10-04</lastmod>
+  </url>
+  <url>
+    <loc>https://crcr0.github.io/HAS/v2/</loc>
     <lastmod>2026-10-04</lastmod>
   </url>
 </urlset>
